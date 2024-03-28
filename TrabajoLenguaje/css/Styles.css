@@ -1,0 +1,319 @@
+@font-face {
+    font-family: 'OnePiece-zAqL.ttf';
+    font-style: normal;
+    font-weight: normal;
+    src: local('OnePiece-zAqL.ttf'), url('OnePiece-zAqL.woff') format('woff');
+}
+
+body {
+    margin: 2;
+    background-color: rgb(255, 255, 255);
+    font-family: sans-serif;
+}
+
+.todo {
+    display: felx;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+#container {
+    background-image: url('../img/fondo\ guia.jpg');
+    background-size: cover;
+    background-position: center;
+    display: grid;
+
+    grid-template-areas:
+        "header"
+        "nav"
+        "title"
+        "section"
+        "article"
+        "aside"
+        "footer"
+    ;
+}
+
+header {
+    font-family: 'OnePiece-zAqL.ttf';
+    margin-top: 1%;
+
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    background-color: #81bd6f;
+    border-radius: 20px;
+    padding: 1%;
+    border: 5px solid black;
+    text-transform: uppercase;
+}
+
+#header h1 {
+    text-align: center;
+}
+
+#logo {
+    max-height: 50vw;
+}
+
+.contenedor {
+    margin-top: 6vh;
+    max-height: 100vh;
+    font-family: 'Open Sans', Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    grid-area: nav;
+    justify-content: center;
+
+
+}
+
+.nav,
+.menu {
+    min-height: 1vh;
+    display: flex;
+    justify-content: center;
+
+}
+
+.nav,
+.menu {
+    height: 5vh;
+    align-items: center;
+}
+
+.nav {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    transition: 0.5s;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+    width: 0;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.nav input:checked~.menu {
+    width: 450px;
+}
+
+.menu li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.menu li a:hover {
+    color: #161919;
+}
+
+.nav input {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.nav span {
+    position: absolute;
+    left: 30px;
+    width: 30px;
+    height: 4px;
+    border-radius: 50px;
+    background-color: #666;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.nav input:checked~span {
+    background-color: #f974a1;
+}
+
+.nav span:nth-child(2) {
+    transform: translateY(-8px);
+}
+
+.nav input:checked~span:nth-child(2) {
+    transform: translateY(0) rotate(-45deg);
+}
+
+.nav span:nth-child(3) {
+    transform: translateY(8px);
+}
+
+.nav input:checked~span:nth-child(3) {
+    transform: translateY(0) rotate(45deg);
+}
+
+#introduccion {
+    background-color: aliceblue;
+    text-align: center;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 2vw;
+    margin-top: 3vh;
+    border-radius: 20px;
+}
+
+#introduccion p {
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(0, 0, 0);
+    font-size: 1.4em;
+}
+
+#controles {
+    grid-area: section;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    margin-top: 2VH;
+    background-color: aliceblue;
+    font-style: normal;
+    color: rgb(8, 8, 8);
+    font-size: 1.1em;
+}
+
+#controles li {
+    margin-top: 2vh;
+    animation: aparecer 2s ease;
+}
+
+#controles h1 {
+    text-align: center;
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+footer {
+    text-align: center;
+    background-color: #81bd6f;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 1%;
+}
+
+
+
+/* PARA QUE APAREZCAN SOMBREAS AL ESTAR ENCIMA DE LINKS*/
+@keyframes shadow-drop-center {
+    0% {
+        box-shadow: 0 0 0 0 transparent
+    }
+
+    100% {
+        box-shadow: 0 0 40px 0 rgba(238, 235, 235, 0.55)
+    }
+}
+
+/* ANIMACION PARA HACER QUE APAREZCAN EL TEXTO*/
+@keyframes aparecer {
+    from {
+        opacity: 0;
+
+    }
+
+    to {
+        opacity: 1;
+
+    }
+}
+
+/* FORMATO PARA TABLET */
+@media only screen and (min-width: 768px) {
+    #container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        text-align: center;
+        border-radius: 20px;
+        align-items: center;
+        padding: 1%;
+    }
+
+    header h1 {
+        min-width: 50%;
+    }
+
+    #logo {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+
+    }
+
+
+
+    #introduccion {
+        padding: 20px;
+    }
+
+    #controles {
+        padding: 20px;
+    }
+
+    #introduccion p,
+    #controles ul {
+        font-size: 1.1em;
+    }
+}
+
+
+/* FORMATO PARA PANTALLA DE ESCRITORIO */
+@media only screen and (min-width: 1024px) {
+
+    header {
+        margin: auto;
+        margin-top: 1%;
+        grid-area: header;
+        background-color: #81bd6f;
+        border-radius: 20px;
+        border: 5px solid black;
+        text-transform: uppercase;
+        max-height: 60%;
+        max-width: 60%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+
+
+
+    #introduccion {
+        padding: 20px;
+    }
+
+    #controles {
+        padding: 20px;
+    }
+
+    #introduccion p,
+    #controles ul {
+        font-size: 1.1em;
+    }
+
+}
+
+@media only screen and (max-width: 530px) {
+    .nav input:checked~.menu {
+        width: 350px;
+    }
+
+    .menu li a {
+        font-size: 0.9em;
+    }
+}
